@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container-fluid p-0 m-0
+				align-items-center
+				justify-content-center d-flex"
+			style="min-height: 100vh;
+			background-color: #498433;">
+
+		<!-- Row for the card-->
+		<div class="row w-100 p-0 w-0">
+        {% for i in movie_list %}
+			<!-- Column for card-->
+			<div class="col-lg-4 mb-2">
+				<div class="card mx-auto" style="width:18rem;">
+                    <img class="card-img-top" src="{{i.img.url}}" alt="Card image">
+                    <div class="card-body" >
+                      <h4 class="card-title">{{i.name}}</h4>
+                      <p class="card-text">{{i.desc}}</p>
+                      <a href="{% url 'movielistapp:detail' i.id %}" class="btn btn-primary">go </a>
+                      <a href="{% url 'movielistapp:add_movie'  %}" class="btn btn-primary">add </a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
